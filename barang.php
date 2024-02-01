@@ -19,10 +19,10 @@
         <div>
             <h1>Data Barang</h1>
             <form action="new-barang.php" method="GET">
+                <button type="submit">Tambah</button>
             </form>
             <table border="1">
                 <tr>
-                   <th>No.</th>
                    <th>Nama</th>
                    <th>Kategori</th>
                    <th>Stok</th>
@@ -36,7 +36,7 @@
                 <?php $i = 1; ?>
                 <?php while ($barang = mysqli_fetch_array($query)) : ?>
                 	<tr>
-                	<td><?= $1 ?></td>
+                	<?php $i = 1; ?>
                 	<td><?= $barang["nama"] ?></td>
                     <td><?= $barang["kategori"] ?></td>
                     <td><?= $barang["stok"] ?></td>
@@ -45,8 +45,9 @@
                     <td><?= $barang["created_at"] ?></td>
                     <td><?= $barang["updated_at"] ?></td>
                     <td>
-                        <form action="read.barang.php" method="GET">
+                        <form action="read-barang.php" method="GET">
                             <input type="hidden" name="id" value='<?= $barang["id"] ?>'>
+                            <button type="submit">Lihat</button>
                             <button type="submit">Delete</button>
                         </form>
                     </td>
